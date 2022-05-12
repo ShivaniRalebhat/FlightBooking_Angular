@@ -1,0 +1,49 @@
+<div class="container">
+    <form novalidate [formGroup]="discountform"  autocomplete="off">
+        <input type="hidden" id="id" formControlName="id" name="id" [(ngModel)]="id">
+        <div class="mb-1">
+            <label for="vouchercode" class="form-label">Voucher Code</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': discountform.get('vouchercode')?.invalid &&
+                (discountform.get('vouchercode')?.dirty || discountform.get('vouchercode')?.touched)}"  id="vouchercode" name="vouchercode"
+                    formControlName="vouchercode" placeholder="vouchercode name" [(ngModel)]="discount.vouchercode">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="totaldiscount" class="form-label">totaldiscount</label>
+            <div class="input-group has-validation">
+                <input type="text"  [ngClass]="{'form-control': true, 'is-invalid': discountform.get('totaldiscount')?.invalid &&
+                (discountform.get('totaldiscount')?.dirty || discountform.get('totaldiscount')?.touched)}" id="totaldiscount" name="totaldiscount"
+                    formControlName="totaldiscount" placeholder="totaldiscount" [(ngModel)]="discount.totaldiscount">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+       
+        <div class="mb-1">
+            <label for="isactive" class="form-label">Active</label>
+            <div class="input-group has-validation">
+                <label>
+                    <input type="checkbox" class="filled-in"formControlName="isactive" checked="checked" name="isactive" [(ngModel)]="discount.isactive"  />
+             
+                  </label>
+            </div>
+        </div>
+        
+        <div class="mb-1">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="save()" [disabled]="discountform.invalid" class="btn btn-primary" type="button">
+                    Save</button>
+                
+            </div>
+        </div>
+
+        <div class="mb-1">
+            {{discountform.value |json}}
+        </div>
+    </form>
+</div>

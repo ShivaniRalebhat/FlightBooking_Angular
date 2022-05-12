@@ -1,0 +1,57 @@
+<div class="container">
+    <form novalidate [formGroup]="airlineform"  autocomplete="off">
+        <div class="mb-1">
+            <label for="airline" class="form-label">Airline</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': airlineform.get('airline')?.invalid &&
+                (airlineform.get('airline')?.dirty || airlineform.get('airline')?.touched)}"  id="airline" name="airline"
+                    formControlName="airline" placeholder="airline name" [(ngModel)]="airline.airline">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="contactaddress" class="form-label">Address</label>
+            <div class="input-group has-validation">
+                <input type="text"  [ngClass]="{'form-control': true, 'is-invalid': airlineform.get('contactaddress')?.invalid &&
+                (airlineform.get('contactaddress')?.dirty || airlineform.get('contactaddress')?.touched)}" id="contactaddress" name="contactaddress"
+                    formControlName="contactaddress" placeholder="address" [(ngModel)]="airline.contactaddress">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+       
+        <div class="mb-1">
+            <label for="contactnumber" class="form-label">Contact</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': airlineform.get('contactnumber')?.invalid &&
+                    (airlineform.get('contactnumber')?.dirty || airlineform.get('contactnumber')?.touched)}" id="contactnumber" name="contactnumber"
+                    formControlName="contactnumber" maxlength="10" placeholder="contact" [(ngModel)]="airline.contactnumber">
+               
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="isactive" class="form-label">Active</label>
+            <div class="input-group has-validation">
+                <label>
+                    <input type="checkbox" class="filled-in"formControlName="isactive" checked="checked" name="isactive" [(ngModel)]="airline.isactive"  />
+             
+                  </label>
+            </div>
+        </div>
+        
+        <div class="mb-1">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="save()" [disabled]="airlineform.invalid" class="btn btn-primary" type="button">
+                    Save</button>
+                
+            </div>
+        </div>
+
+        <div class="mb-1">
+            {{airlineform.value |json}}
+        </div>
+    </form>
+</div>

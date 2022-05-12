@@ -1,0 +1,40 @@
+<p>login works!</p>
+<div class="card justify-content-center col-6" style="margin-inline: auto;">
+    <div class="card-header">Sign In</div>
+    <div class="card-body">
+        <form  novalidate [formGroup]="loginform">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email address</label>
+              <input type="email" id="email" [(ngModel)]="email" formControlName="email" class="form-control" required
+              [ngClass]="{'form-control': true, 'is-invalid': loginform.get('email')?.invalid &&
+                (loginform.get('email')?.dirty || loginform.get('email')?.touched)}"/>
+              <div class="invalid-feedback">
+                This field is required.
+            </div>
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+              <input type="password" id="password" class="form-control" [(ngModel)]="password" formControlName="password" required
+              [ngClass]="{'form-control': true, 'is-invalid': loginform.get('password')?.invalid &&
+                (loginform.get('password')?.dirty || loginform.get('password')?.touched)}"/>
+              <div class="invalid-feedback">
+                This field is required.
+            </div>
+            </div>
+          
+            
+            <!-- Submit button -->
+            <button type="button" (click)="login()" class="btn btn-primary btn-block mb-4">Sign in</button>
+          
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Not a member? <a routerLink="/sign-up">Register</a></p>
+              
+            </div>
+          </form>
+        
+    </div>
+</div>

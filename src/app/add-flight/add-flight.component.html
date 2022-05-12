@@ -1,0 +1,137 @@
+<div class="container">
+    <form novalidate [formGroup]="flightform"  autocomplete="off">
+        <div class="mb-1">
+            <label for="flightno" class="form-label">Flight No</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('flightno')?.invalid &&
+                (flightform.get('flightno')?.dirty || flightform.get('flightno')?.touched)}"  id="flightno" name="flightno"
+                    formControlName="flightno" placeholder="flight no" [(ngModel)]="flight.flightno">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="airline" class="form-label">airline</label>
+            <div class="input-group has-validation">
+                <select name="airline" class="form-control" formControlName="airline" [(ngModel)]="flight.airline">
+                    <option value="">Please Select</option>
+                    <option [value]="air.airline" *ngFor="let air of airlineList">{{air.airline}}</option>
+                </select>
+            </div>
+        </div>
+       
+        <div class="mb-1">
+            <label for="fromplace" class="form-label">From place</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('fromplace')?.invalid &&
+                    (flightform.get('fromplace')?.dirty || flightform.get('fromplace')?.touched)}" id="fromplace" name="fromplace"
+                    formControlName="fromplace" maxlength="10" placeholder="fromplace" [(ngModel)]="flight.fromplace">
+               
+               
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="toplace" class="form-label">To place</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('toplace')?.invalid &&
+                    (flightform.get('toplace')?.dirty || flightform.get('toplace')?.touched)}" id="toplace" name="toplace"
+                    formControlName="toplace" maxlength="10" placeholder="toplace" [(ngModel)]="flight.toplace">
+               
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="toplace" class="form-label">startdate</label>
+            <div class="input-group has-validation">
+                 {{flight.startdate}}
+                <input type="date" class="from-control" formControlName="startdate" name="startdate" [(ngModel)]="flight.startdate" required>
+            </div>
+        </div>
+
+        <div class="mb-1">
+            <label for="toplace" class="form-label">enddate</label>
+            <div class="input-group has-validation">
+                {{flight.enddate}}
+                <input type="date" class="from-control" formControlName="enddate" name="enddate" [(ngModel)]="flight.enddate" required>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="toplace" class="form-label">scheduleddays</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('scheduleddays')?.invalid &&
+                    (flightform.get('scheduleddays')?.dirty || flightform.get('scheduleddays')?.touched)}" id="scheduleddays" name="scheduleddays"
+                    formControlName="scheduleddays" maxlength="10" placeholder="scheduleddays" [(ngModel)]="flight.scheduleddays">
+               
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="toplace" class="form-label">instruments</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('instrument')?.invalid &&
+                    (flightform.get('instrument')?.dirty || flightform.get('instrument')?.touched)}" id="instrument" name="instruments"
+                    formControlName="instrument" maxlength="10" placeholder="instrument" [(ngModel)]="flight.instrument">
+               
+            </div>
+        </div>
+
+        <div class="mb-1">
+            <label for="toplace" class="form-label">meal</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('meal')?.invalid &&
+                    (flightform.get('meal')?.dirty || flightform.get('meal')?.touched)}" id="meal" name="instruments"
+                    formControlName="meal" maxlength="10" placeholder="meal" [(ngModel)]="flight.meal">
+               
+            </div>
+        </div>
+
+        <div class="mb-1">
+            <label for="toplace" class="form-label">No Of Rows</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('rowsno')?.invalid &&
+                    (flightform.get('rowsno')?.dirty || flightform.get('rowsno')?.touched)}" id="rowsno" name="rowsno"
+                    formControlName="rowsno" maxlength="10" placeholder="rowsno" [(ngModel)]="flight.rowsno">
+               
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="toplace" class="form-label">ticketcost</label>
+            <div class="input-group has-validation">
+                <input type="text" [ngClass]="{'form-control': true, 'is-invalid': flightform.get('ticketcost')?.invalid &&
+                    (flightform.get('ticketcost')?.dirty || flightform.get('ticketcost')?.touched)}" id="rowsno" name="ticketcost"
+                    formControlName="ticketcost" maxlength="10" placeholder="ticketcost" [(ngModel)]="flight.ticketcost">
+               
+            </div>
+        </div>
+        
+        <div class="mb-1">
+            <label for="isroundtrip" class="form-label">isroundtrip</label>
+            <div class="input-group has-validation">
+                <label>
+                    <input type="checkbox" class="filled-in"formControlName="isroundtrip" checked="checked" name="isactive" [(ngModel)]="flight.isroundtrip"  />
+             
+                  </label>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="isactive" class="form-label">Active</label>
+            <div class="input-group has-validation">
+                <label>
+                    <input type="checkbox" class="filled-in"formControlName="isactive" checked="checked" name="isactive" [(ngModel)]="flight.isactive"  />
+             
+                  </label>
+            </div>
+        </div>
+        
+        <div class="mb-1">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="save()" [disabled]="flightform.invalid" class="btn btn-primary" type="button">
+                    Save</button>
+                
+            </div>
+        </div>
+
+        <div class="mb-1">
+            {{flightform.value |json}}
+        </div>
+    </form>
+</div>

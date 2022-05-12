@@ -1,0 +1,58 @@
+<div class="conatiner">
+    
+    <form novalidate [formGroup]="PassengerForm"  autocomplete="off">
+        <div class="row">
+            <div class="col col-3">
+                <label for="seatno" class="form-label">Seat No</label>
+                    <div class="input-group has-validation">
+                        <input type="text" [ngClass]="{'form-control': true, 'is-invalid': PassengerForm.get('seatno')?.invalid &&
+                        (PassengerForm.get('seatno')?.dirty || PassengerForm.get('seatno')?.touched)}"  id="seatno" name="seatno"
+                            formControlName="seatno" placeholder="seat no" [(ngModel)]="passengermodel.seatno">
+                        <div class="invalid-feedback">
+                            This field is required.
+                        </div>
+                    </div>
+            </div>
+            <div class="col col-3">
+                <label for="name" class="form-label">Name</label>
+                    <div class="input-group has-validation">
+                        <input type="text" [ngClass]="{'form-control': true, 'is-invalid': PassengerForm.get('name')?.invalid &&
+                        (PassengerForm.get('name')?.dirty || PassengerForm.get('name')?.touched)}"  id="name" name="name"
+                            formControlName="name" placeholder="passenger name" [(ngModel)]="passengermodel.name">
+                        <div class="invalid-feedback">
+                            This field is required.
+                        </div>
+                    </div>
+            </div>
+            <div class="col col-3">
+                <label for="age" class="form-label">Age</label>
+                    <div class="input-group has-validation">
+                        <input type="number" [ngClass]="{'form-control': true, 'is-invalid': PassengerForm.get('age')?.invalid &&
+                        (PassengerForm.get('age')?.dirty || PassengerForm.get('age')?.touched)}"  id="age" name="age"
+                            formControlName="age" placeholder="passenger age" [(ngModel)]="passengermodel.age">
+                        <div class="invalid-feedback">
+                            This field is required.
+                        </div>
+                    </div>
+            </div>
+            <div class="col col-3">
+                <label for="gender" class="form-label">Gender</label>
+                    <div class="input-group has-validation">
+                        <input type="text" [ngClass]="{'form-control': true, 'is-invalid': PassengerForm.get('gender')?.invalid &&
+                        (PassengerForm.get('gender')?.dirty || PassengerForm.get('gender')?.touched)}"  id="gender" name="gender"
+                            formControlName="gender" placeholder="gender" [(ngModel)]="passengermodel.gender">
+                        <div class="invalid-feedback">
+                            This field is required.
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col col-3">
+                <input type="button" (click)="Add()" value="Add" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+    
+</div>

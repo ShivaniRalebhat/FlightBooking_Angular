@@ -1,0 +1,37 @@
+<div class="card justify-content-center col-6" style="margin-inline: auto;">
+    <div class="card-header">Registration</div>
+    <div class="card-body">
+        <form class="col s12 white" #userRegistrationForm ="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+            <div class="row">
+                <div class="form-outline mb-4 form-group">
+                    <label data-error="Required Field!">UserName</label>&nbsp;&nbsp;
+                    <input type="text" class="validate" name="UserName" [(ngModel)]="user.UserName" required>
+                    
+                </div>
+                <div class="form-outline mb-4 form-group">
+                    <label data-error="Required Field!" >Password</label>&nbsp;&nbsp;
+                    <input type="text" class="validate" name="Password" [(ngModel)]="user.Password" required minlength="8">
+                   
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-outline mb-4 form-group">
+                    <label data-error="Required Field!" >emailid</label>&nbsp;&nbsp;
+                    <input type="text" class="validate" name="emailid" [(ngModel)]="user.emailid" required [pattern] ="emailPattern">
+                    
+                </div>
+                <div class="form-outline mb-4 form-group">
+                    <label>
+                        <input type="checkbox" class="filled-in" checked="checked" name="isactive" [(ngModel)]="user.isactive"  />
+                        <span>Active</span>
+                      </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                   <button class="btn-large btn-submit" type="submit">Register</button>
+                </div>
+            </div>
+        </form> 
+    </div>
+</div>

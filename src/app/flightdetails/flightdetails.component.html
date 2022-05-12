@@ -1,0 +1,92 @@
+<div class="card justify-content-center col-12" style="margin-inline: auto;">
+    <div class="card-header">Book Ticket</div>
+    <div class="card-body">
+        <form novalidate [formGroup]="Bookform"  autocomplete="off">
+            <input type="hidden" value="pnr" name="pnr" formControlName="pnr" [(ngModel)]="bookinghistory.pnr">
+            <div class="row">
+                <div class="col col-3">
+                    <label for="flightno" class="form-label">Flight No</label>
+                        <div class="input-group has-validation">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': Bookform.get('flightno')?.invalid &&
+                            (Bookform.get('flightno')?.dirty || Bookform.get('flightno')?.touched)}"  id="flightno" name="flightno"
+                                formControlName="flightno" placeholder="flightno no" [(ngModel)]="bookinghistory.flightno">
+                            <div class="invalid-feedback">
+                                This field is required.
+                            </div>
+                        </div>
+                </div>
+                <div class="col col-3">
+                    <label for="airline" class="form-label">Airline</label>
+                        <div class="input-group has-validation">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': Bookform.get('airline')?.invalid &&
+                            (Bookform.get('airline')?.dirty || Bookform.get('airline')?.touched)}"  id="airline" name="airline"
+                                formControlName="airline" placeholder="Airline" [(ngModel)]="bookinghistory.airline">
+                            <div class="invalid-feedback">
+                                This field is required.
+                            </div>
+                        </div>
+                </div>
+                <div class="col col-3">
+                    <label for="totalpassanger" class="form-label">Total Passenger</label>
+                        <div class="input-group has-validation">
+                            <input type="number" [ngClass]="{'form-control': true, 'is-invalid': Bookform.get('totalpassanger')?.invalid &&
+                            (Bookform.get('totalpassanger')?.dirty || Bookform.get('totalpassanger')?.touched)}"  id="totalpassanger" name="totalpassanger"
+                                formControlName="totalpassanger" placeholder="Total Passenger" [(ngModel)]="bookinghistory.totalpassanger">
+                            <div class="invalid-feedback">
+                                This field is required.
+                            </div>
+                        </div>
+                </div>
+                <div class="col col-3">
+                    <label for="meal" class="form-label">Meal</label>
+                        <div class="input-group has-validation">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': Bookform.get('meal')?.invalid &&
+                            (Bookform.get('meal')?.dirty || Bookform.get('meal')?.touched)}"  id="meal" name="meal"
+                                formControlName="meal" placeholder="Meal" [(ngModel)]="bookinghistory.meal">
+                            <div class="invalid-feedback">
+                                This field is required.
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-3">
+                    <label for="totaldiscount" class="form-label">Discount</label>
+                    <div class="input-group has-validation">
+                        <select name="totaldiscount" class="form-control" formControlName="totaldiscount" [(ngModel)]="bookinghistory.totaldiscount"
+                        #mySelect
+                         (change)='onOptionsSelected(mySelect.value)'>>
+                            <option value="">Please Select</option>
+                            <option [value]="dis.totaldiscount" *ngFor="let dis of discountlist">{{dis.vouchercode}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col col-3">
+                    <label for="ticketcost" class="form-label">ticket cost</label>
+                        <div class="input-group has-validation">
+                            <input type="text" [ngClass]="{'form-control': true, 'is-invalid': Bookform.get('ticketcost')?.invalid &&
+                            (Bookform.get('ticketcost')?.dirty || Bookform.get('ticketcost')?.touched)}"  id="ticketcost" name="ticketcost"
+                                formControlName="ticketcost" placeholder="ticket cost" [(ngModel)]="bookinghistory.ticketcost">
+                            <div class="invalid-feedback">
+                                This field is required.
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col col-3">
+                    <input type="button" (click)="AddPassanger()" value="Add Passenger" class="btn btn-primary">
+                </div>
+            </div>
+           <br>
+                <div class="col col-3">
+                    <input type="button" style="background-color: green;" (click)="BookTicket()" value="Book Ticket" class="btn btn-primary">
+                </div>
+           
+        </form>
+    </div>
+</div>
+
+
+

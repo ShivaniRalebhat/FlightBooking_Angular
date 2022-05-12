@@ -1,0 +1,35 @@
+<div class="container justify-content-center col-12" style="margin-inline: auto;">
+    <div class="row">
+        <div class="search-flightList">
+
+            <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search Here..">
+        </div>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    
+                    <th>PNR</th>
+                    <th>Flight No</th>
+                    <th>No.Passenger</th>
+                    <th>Meal</th>
+                    <th></th>
+                    <th></th>
+    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of bookinghistory | filter:searchText">
+                    
+                    <td>{{item.pnr}}</td>
+                    <td>{{item.flightno}}</td>
+                    <td>{{item.totalpassanger}}</td>
+                    <td>{{item.meal}}</td>
+                    <td><input type="button" class="btn btn-primary" value="view" [routerLinkActiveOptions]="{exact:true}"
+                        routerLinkActive="active" [routerLink]="['/login']"   ></td>
+                        <td><input type="button" class="btn btn-danger" (click)="cancel(item.pnr)" value="cancel"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

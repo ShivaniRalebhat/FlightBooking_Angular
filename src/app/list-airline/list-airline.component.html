@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                
+                <th>Airline</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of airlineList">
+                
+                <td>{{item.airline}}</td>
+                <td>{{item.contactnumber}}</td>
+                <td>{{item.contactaddress}}</td>
+                <td>{{item.isactive}}</td>
+                <td><input type="button" class="btn btn-primary" value="Edit" [routerLinkActiveOptions]="{exact:true}"
+                    routerLinkActive="active" [routerLink]="['/add-airline',item.airline]"   ></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
